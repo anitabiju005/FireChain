@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-jet-black text-white font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-black/20 backdrop-blur-sm border border-dark-mauve/30 rounded-xl;
+  }
+  
+  .fire-gradient {
+    background: linear-gradient(135deg, #FF4444 0%, #FF8800 50%, #FFAA00 100%);
+  }
+  
+  .gold-gradient {
+    background: linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #FFA500 100%);
+  }
+  
+  .mauve-gradient {
+    background: linear-gradient(135deg, #6B4C7E 0%, #8B5A9B 50%, #A569BD 100%);
+  }
+  
+  .btn-primary {
+    @apply bg-dark-mauve hover:bg-dark-mauve/80 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply bg-soft-gold hover:bg-soft-gold/80 text-jet-black font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 active:scale-95;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 bg-black/50 border border-dark-mauve/30 rounded-lg text-white placeholder-gray-400 focus:border-soft-gold focus:outline-none focus:ring-2 focus:ring-soft-gold/20 transition-all duration-200;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-soft-gold/10;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-jet-black;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-dark-mauve rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-soft-gold;
+}
+
+/* Leaflet map dark theme */
+.leaflet-container {
+  background: #0A0A0A !important;
+}
+
+.leaflet-tile {
+  filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) invert(1);
+}
+
+.leaflet-control-zoom a {
+  background-color: #6B4C7E !important;
+  color: white !important;
+  border: 1px solid #D4AF37 !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background-color: #D4AF37 !important;
+  color: #0A0A0A !important;
+}
+
+/* Fire animation */
+@keyframes fire-flicker {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.05) rotate(1deg); }
+  50% { transform: scale(0.95) rotate(-1deg); }
+  75% { transform: scale(1.02) rotate(0.5deg); }
+}
+
+.fire-flicker {
+  animation: fire-flicker 2s ease-in-out infinite;
+}
+
+/* Pulse animation for alerts */
+@keyframes alert-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.alert-pulse {
+  animation: alert-pulse 1.5s ease-in-out infinite;
+}
