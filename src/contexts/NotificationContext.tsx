@@ -147,3 +147,5 @@ export const useNotification = (): NotificationContextType => {
   }
   return context;
 };
+
+export { NotificationContext }

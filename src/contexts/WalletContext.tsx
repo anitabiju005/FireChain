@@ -111,3 +111,5 @@ export const useWallet = (): WalletContextType => {
   }
   return context;
 };
+
+export { WalletContext }
